@@ -26,7 +26,13 @@ const song =
             },
             ]
     };
+    console.log(song);
 
+    //Destructuring basics
+    const {displayName, band, info} = song;
+    console.log(band);
+    console.log(displayName);
+    console.log(info.quality); //acces to inner property
 
     //Print lineup method/function from object literal
     song.printLineUp();
