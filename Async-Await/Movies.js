@@ -25,16 +25,11 @@ function getMovieData(movieTitle){
 async function addMovieToDom(movieTitle){
 	document.getElementById('movies').innerHTML="";
 	const movieData = await getMovieData(movieTitle);
-	console.log(movieData);
 	// const {original_title,vote_average,poster_path} = movieData[0];
 	// console.log(vote_average);
 	// console.log(original_title);
 	const castData = await getCast(movieData[0])
-	console.log('cast/....');
-	console.log(castData);
 	const personData = await getPerson(castData)
-	console.log('person/....');
-	console.log(personData);
 
 	
 	document.getElementById('movies').innerHTML+=`
@@ -78,7 +73,6 @@ function getPerson(person){
 document.getElementById('movie-form').addEventListener('submit',(event)=>{
 	event.preventDefault();
 	const movieElem = Array.from(document.getElementsByClassName('movie-title'))
-	console.log(movieElem);
 	movieElem.forEach((elem)=>{
 			addMovieToDom(elem.value)
 	})
